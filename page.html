@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Bingo!</title>
+
+    <link rel="stylesheet" href="./style.css" />            <!-- CSS Added -->
+</head>
+<body>
+
+    <!-- Imagen principal -->
+    <div class = "header">
+        <img class = "imagen_sup" src="./image1.png" alt="Imagen principal" />
+    </div>
+
+    <!-- Menu principal -->
+    <section>
+        <div class = "button_display">
+            <label>
+                <div>Nombre:</div>
+                <input
+                  type="text"
+                  placeholder="Ingrese nombre de jugador"         
+                  id="input-nombre"
+                /> 
+                <button onclick="handleSubmit()">Agregar</button>
+            </label>
+
+            <button class = "selection_button" onclick ="showHideButton_Display(), startGame(3)">3x3</button> 
+            <button class = "selection_button" onclick ="showHideButton_Display(), startGame(4)">4x4</button>      <!-- Botones de dimension de las grillas -->
+            <button class = "selection_button" onclick ="showHideButton_Display(), startGame(5)">5x5</button> 
+
+    </section>
+    
+    <script src="./code.js"></script>                       <!-- JS Added -->
+</body>
+</html>
