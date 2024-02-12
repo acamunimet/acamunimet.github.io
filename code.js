@@ -5,7 +5,7 @@ const usuarios = [];
 class player {
 
     name = '';
-    grid = null;
+    grid = [];
     victories = 0;
 
     constructor(nombre){
@@ -21,9 +21,16 @@ class player {
     }
 
     checkNumbers(number) {
-        if (this.grid != null) {
-            
-        }
+        if (this.grid.length != 0) {
+            for (let index = 0; index < this.grid.length; index++) {
+                for (let index2 = 0; index2 < this.grid[index].length; index++) {
+                    if (this.grid[index][index2].getContent == number) {
+                        this.grid[index][index2].toggleChecked();
+                    };
+                };
+                
+            };
+        };
     }
 }
 
@@ -39,6 +46,14 @@ class matrix_box {
 
     getContent() {
         return  this.content;
+    };
+
+    toggleChecked() {
+        if (this.checked == false) {
+            this.checked == true;
+        }else{
+            this.checked == false;
+        }
     };
 }
 
@@ -59,9 +74,9 @@ function showHideButton_Display(){
 function startGame(dimension){
     const ingame_players = [];
 
-    while (ingame_players != 4) {
-        ingame_players.push(handleSubmit())                     // Acumula 4 jugadores para comenzar
-    }
+    for (let i = -1; i > -5; i--) {
+            ingame_players.push(usuarios[i]);                           // Registra los ultimos 4 jugadores de la lista de jugadores
+        }                     
     let turn = 0;
     while (turn < 26) {
         if (turn == 0) {
@@ -71,7 +86,8 @@ function startGame(dimension){
         }
         let x = releaseNumber();                                        // Libera el numero de la ronda
         for (let i = 0; i < ingame_players.length; i++) {
-            ingame_players[i];
+            ingame_players[i].checkNumbers();                           // Chequea si el jugador tiene el numero seleccionado en su grilla para marcarlo como 
+                                                                         
             
         }
         turn += 1;
